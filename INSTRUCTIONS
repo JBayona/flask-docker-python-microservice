@@ -10,3 +10,6 @@ pip freeze > requirements.txt
 python3 app.py
 - Use nodemon to refresh app when runninf
 nodemon app.py
+
+Reference:
+https://www.youtube.com/watch?v=3BxLyZWwYoI
