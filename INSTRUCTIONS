@@ -11,5 +11,23 @@ python3 app.py
 - Use nodemon to refresh app when runninf
 nodemon app.py
 
+- Put app in docker:
+docker build -tag name and "." means everything
+docker build -t python-test .
+
+- Correr el container
+docker run -it --name python-container -p 3200:3200 python-test
+
+Runs in:
+http://192.168.100.9:3200/temp
+
+List containers:
+docker ps -activate
+Remove containers:
+docker rm <CONTAINIER_ID>
+
+Run container in the background:
+docker run -d --name python-container -p 3200:3200 python-test
+
 Reference:
 https://www.youtube.com/watch?v=3BxLyZWwYoI
