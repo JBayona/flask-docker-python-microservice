@@ -1,0 +1,12 @@
+- Create virtual env on python 3 using:
+virtualenv -p python3 docker_flask
+- Enter to the virtual environment
+source docker_flask/bin/activate
+- Send requisites for flask
+pip install flask
+pip freeze > requirements.txt
+
+- Run app
+python3 app.py
+- Use nodemon to refresh app when runninf
+nodemon app.py
