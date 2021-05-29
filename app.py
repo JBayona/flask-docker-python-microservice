@@ -65,7 +65,7 @@ def get_data(collection, member):
   res = make_response(jsonify({"error": "Collection not found"}), 400)
   return res
 
-# POST
+# POST METHOD
 @app.route("/json/<collection>", methods=["POST"])
 def create_collection(collection):
   req = request.get_json()
@@ -75,6 +75,22 @@ def create_collection(collection):
   
   INFO.update({collection: req})
   res = make_response(jsonify({"message": "Collection created"}), 200)
+  return res
+
+# PUT METHOD
+@app.route("/json/<collection>/<member>", methods=["PUT"])
+def update_collection(collection, member):
+  req = request.get_json()
+  if collection in INFO:
+    if member:
+      INFO[collection][member] = req['new']
+      res = make_response(jsonify({"message": INFO[collection]}), 200)
+      return res
+    
+    res = make_response(jsonify({"error": "Member not found"}), 400)
+    return res
+  
+  res = make_response(jsonify({"error": "Collection not found"}), 400)
   return res
 
 if __name__ == "__main__":
